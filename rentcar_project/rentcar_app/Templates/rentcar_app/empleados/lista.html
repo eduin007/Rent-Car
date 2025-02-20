@@ -1,0 +1,27 @@
+{% extends 'rentcar_app/base.html' %}
+
+{% block title %}Empleados - RentCar{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Empleados Registrados</h1>
+<a href="{% url 'crear_empleado' %}" class="btn btn-primary mb-4">
+    <i class="bi bi-plus"></i> Crear Empleado
+</a>
+<div class="row">
+    {% for empleado in empleados %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ empleado.nombre }}</h5>
+                <p class="card-text">
+                    <strong>Cédula:</strong> {{ empleado.cedula }}<br>
+                    <strong>Tanda Labor:</strong> {{ empleado.tanda_labor }}<br>
+                    <strong>Fecha de Ingreso:</strong> {{ empleado.fecha_ingreso }}
+                </p>
+                <a href="#" class="btn btn-primary">Ver Detalles</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

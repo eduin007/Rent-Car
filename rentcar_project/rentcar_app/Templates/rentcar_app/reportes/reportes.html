@@ -1,0 +1,38 @@
+{% extends 'rentcar_app/base.html' %}
+
+{% block title %}Reportes - RentCar{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Reportes</h1>
+
+<!-- Botón para descargar el reporte en PDF -->
+<a href="{% url 'reporte_rentas_pdf' %}" class="btn btn-danger mb-3">Descargar Reporte en PDF</a>
+
+<!-- Reporte de Rentas -->
+<div class="card mb-4">
+    <div class="card-body">
+        <h5 class="card-title">Reporte de Rentas</h5>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Vehículo</th>
+                    <th>Cliente</th>
+                    <th>Fecha de Renta</th>
+                    <th>Fecha de Devolución</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for renta in rentas %}
+                <tr>
+                    <td>{{ renta.vehiculo.descripcion }}</td>
+                    <td>{{ renta.cliente.nombre }}</td>
+                    <td>{{ renta.fecha_renta }}</td>
+                    <td>{{ renta.fecha_devolucion }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

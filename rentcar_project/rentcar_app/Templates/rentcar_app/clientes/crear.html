@@ -1,0 +1,17 @@
+{% extends 'rentcar_app/base.html' %}
+
+{% block title %}Crear Cliente - RentCar{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Crear Cliente</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">
+        <i class="bi bi-save"></i> Guardar
+    </button>
+    <a href="{% url 'lista_clientes' %}" class="btn btn-secondary">
+        <i class="bi bi-x"></i> Cancelar
+    </a>
+</form>
+{% endblock %}

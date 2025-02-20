@@ -1,0 +1,27 @@
+{% extends 'rentcar_app/base.html' %}
+
+{% block title %}Eliminar Vehículo - RentCar{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">¿Estás seguro de eliminar este vehículo?</h1>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{ vehiculo.descripcion }}</h5>
+        <p class="card-text">
+            <strong>Marca:</strong> {{ vehiculo.marca.descripcion }}<br>
+            <strong>Modelo:</strong> {{ vehiculo.modelo.descripcion }}<br>
+            <strong>Placa:</strong> {{ vehiculo.no_placa }}<br>
+            <strong>Estado:</strong> {{ vehiculo.estado }}
+        </p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">
+                <i class="bi bi-trash"></i> Sí, eliminar
+            </button>
+            <a href="{% url 'lista_vehiculos' %}" class="btn btn-secondary">
+                <i class="bi bi-x"></i> Cancelar
+            </a>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'rentcar_app/base.html' %}
+
+{% block title %}Tipos de Vehículos - RentCar{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Tipos de Vehículos</h1>
+<a href="{% url 'crear_tipo_vehiculo' %}" class="btn btn-primary mb-4">
+    <i class="bi bi-plus"></i> Crear Tipo de Vehículo
+</a>
+<div class="row">
+    {% for tipo in tipos %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ tipo.descripcion }}</h5>
+                <p class="card-text">
+                    <strong>Estado:</strong> {{ tipo.estado }}
+                </p>
+                <a href="#" class="btn btn-primary">Ver Detalles</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'rentcar_app/base.html' %}
+
+{% block title %}Clientes - RentCar{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Clientes Registrados</h1>
+<a href="{% url 'crear_cliente' %}" class="btn btn-primary mb-4">
+    <i class="bi bi-plus"></i> Crear Cliente
+</a>
+<div class="row">
+    {% for cliente in clientes %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ cliente.nombre }}</h5>
+                <p class="card-text">
+                    <strong>Cédula:</strong> {{ cliente.cedula }}<br>
+                    <strong>Límite de Crédito:</strong> {{ cliente.limite_credito }}<br>
+                    <strong>Tipo de Persona:</strong> {{ cliente.tipo_persona }}
+                </p>
+                <a href="#" class="btn btn-primary">Ver Detalles</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

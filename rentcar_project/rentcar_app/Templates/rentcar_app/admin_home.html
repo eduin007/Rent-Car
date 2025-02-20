@@ -1,0 +1,42 @@
+{% extends 'rentcar_app/base.html' %}
+
+{% block title %}Admin - RentCar{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Bienvenido, Administrador</h1>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Vehículos</h5>
+                <p class="card-text">Gestiona los vehículos disponibles.</p>
+                <a href="{% url 'lista_vehiculos' %}" class="btn btn-primary">
+                    <i class="bi bi-car-front"></i> Ver Vehículos
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Clientes</h5>
+                <p class="card-text">Gestiona los clientes registrados.</p>
+                <a href="{% url 'lista_clientes' %}" class="btn btn-primary">
+                    <i class="bi bi-people"></i> Ver Clientes
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Empleados</h5>
+                <p class="card-text">Gestiona los empleados del sistema.</p>
+                <a href="{% url 'lista_empleados' %}" class="btn btn-primary">
+                    <i class="bi bi-person-badge"></i> Ver Empleados
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

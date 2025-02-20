@@ -1,0 +1,40 @@
+{% extends 'rentcar_app/base.html' %}
+
+{% block title %}Reporte de Rentas - RentCar{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Reporte de Rentas entre Fechas</h1>
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="fecha_inicio" class="form-label">Fecha Inicio:</label>
+        <input type="date" class="form-control" id="fecha_inicio" name="fecha_inicio">
+    </div>
+    <div class="mb-3">
+        <label for="fecha_fin" class="form-label">Fecha Fin:</label>
+        <input type="date" class="form-control" id="fecha_fin" name="fecha_fin">
+    </div>
+    <button type="submit" class="btn btn-primary">
+        <i class="bi bi-search"></i> Generar Reporte
+    </button>
+</form>
+
+{% if rentas %}
+<div class="row mt-4">
+    {% for renta in rentas %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ renta.vehiculo.descripcion }}</h5>
+                <p class="card-text">
+                    <strong>Cliente:</strong> {{ renta.cliente.nombre }}<br>
+                    <strong>Fecha de Renta:</strong> {{ renta.fecha_renta }}<br>
+                    <strong>Fecha de Devolución:</strong> {{ renta.fecha_devolucion }}
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

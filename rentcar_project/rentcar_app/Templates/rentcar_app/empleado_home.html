@@ -1,0 +1,31 @@
+{% extends 'rentcar_app/base.html' %}
+
+{% block title %}Empleado - RentCar{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Bienvenido, Empleado</h1>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Rentas</h5>
+                <p class="card-text">Gestiona las rentas realizadas.</p>
+                <a href="{% url 'lista_rentas' %}" class="btn btn-primary">
+                    <i class="bi bi-receipt"></i> Ver Rentas
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Inspecciones</h5>
+                <p class="card-text">Gestiona las inspecciones de vehículos.</p>
+                <a href="{% url 'lista_inspecciones' %}" class="btn btn-primary">
+                    <i class="bi bi-clipboard-check"></i> Ver Inspecciones
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

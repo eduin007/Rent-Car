@@ -1,0 +1,33 @@
+{% extends 'rentcar_app/base.html' %}
+
+{% block title %}Vehículos - RentCar{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Vehículos Disponibles</h1>
+<a href="{% url 'crear_vehiculo' %}" class="btn btn-primary mb-4">
+    <i class="bi bi-plus"></i> Crear Vehículo
+</a>
+<div class="row">
+    {% for vehiculo in vehiculos %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ vehiculo.descripcion }}</h5>
+                <p class="card-text">
+                    <strong>Marca:</strong> {{ vehiculo.marca.descripcion }}<br>
+                    <strong>Modelo:</strong> {{ vehiculo.modelo.descripcion }}<br>
+                    <strong>Placa:</strong> {{ vehiculo.no_placa }}<br>
+                    <strong>Estado:</strong> {{ vehiculo.estado }}
+                </p>
+                <a href="{% url 'editar_vehiculo' vehiculo.id %}" class="btn btn-warning">
+                    <i class="bi bi-pencil"></i> Editar
+                </a>
+                <a href="{% url 'eliminar_vehiculo' vehiculo.id %}" class="btn btn-danger">
+                    <i class="bi bi-trash"></i> Eliminar
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
